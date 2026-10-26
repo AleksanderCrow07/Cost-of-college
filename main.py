@@ -42,7 +42,7 @@ def cost_per_class(annual_cost, credits):
 
 def cost_per_meal(meal_plan, meals_per_week):
     """Give back what one meal costs. meals_per_week is the number of meals eaten per week."""
-    return meal_plan / meals_per_week
+    return meal_plan / (meals_per_week * 16)
 
 # ---- PROGRAM ----
 
@@ -81,7 +81,6 @@ def main():
             print(f"Cost per class: ${cost_per_class(annual_cost, credits):.2f}")
         
         if choice == "6":
-            meals_per_week = int(input("Enter the number of meals eaten per week: "))
             print(f"Cost per meal: ${cost_per_meal(meal_plan, meals_per_week):.2f}")
 
         if choice == "Q":
