@@ -40,6 +40,10 @@ def cost_per_class(annual_cost, credits):
     return (annual_cost * 3) / (2 * credits * CS1430_MEETINGS_PER_SEMESTER)
 
 
+def cost_per_meal(meal_plan, meals_per_week):
+    """Give back what one meal costs. meals_per_week is the number of meals eaten per week."""
+    return meal_plan / meals_per_week
+
 # ---- PROGRAM ----
 
 def main():
@@ -47,6 +51,8 @@ def main():
     annual_cost = float(input("Enter the total cost for one year: "))
     # Then ask for the credits this semester.
     credits = int(input("Enter the number of credits for this semester: "))
+    meals_per_week = int(input("Enter the number of meals eaten per week: "))
+    meal_plan = float(input("How much does your meal plan cost per semester? ")) 
 
     while True:
         print("\nMenu:")
@@ -55,6 +61,7 @@ def main():
         print("3. Cost per day")
         print("4. Cost per credit")
         print("5. Cost per class")
+        print("6. Cost per meal")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -72,6 +79,10 @@ def main():
 
         if choice == "5":
             print(f"Cost per class: ${cost_per_class(annual_cost, credits):.2f}")
+        
+        if choice == "6":
+            meals_per_week = int(input("Enter the number of meals eaten per week: "))
+            print(f"Cost per meal: ${cost_per_meal(meal_plan, meals_per_week):.2f}")
 
         if choice == "Q":
             break
